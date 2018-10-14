@@ -8,12 +8,18 @@
 
 static void ADC_Config(void);
 
+static void GPIO_Config(void);
+
 static void RCC_Config(void);
 
 void sensorsConfig() {
     RCC_Config();
+    GPIO_Config();
     ADC_Config();
     // TODO calibration
+
+    LED_S_OFF;
+    LED_F_OFF;
 }
 
 void ADC_Config() {
@@ -36,9 +42,21 @@ void ADC_Config() {
     while(ADC_GetCalibrationStatus(ADC1));
 }
 
+void GPIO_Config() {
+    GPIO_InitTypeDef GPIO_InitStructure;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+
+    GPIO_InitStructure.GPIO_Pin = LED_S_Pin;
+    GPIO_Init(LED_S_Port, &GPIO_InitStructure);
+    GPIO_InitStructure.GPIO_Pin = LED_F_Pin;
+    GPIO_Init(LED_F_Port, &GPIO_InitStructure);
+}
+
 void RCC_Config() {
-    RCC_ADCCLKConfig(RCC_PCLK2_Div6);
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1, ENABLE);
+    RCC_ADCCLKConfig(RCC_PCLK2_Div6);
 }
 
 u16 readADC(u8 channel) {

@@ -37,16 +37,6 @@
 #define LED_6_ON LED_6_Port->BRR = LED_6_Pin
 #define LED_6_OFF LED_6_Port->BSRR = LED_6_Pin
 
-#define LED_S_Pin GPIO_Pin_15
-#define LED_S_Port GPIOC
-#define LED_S_ON LED_S_Port->BSRR = LED_S_Pin
-#define LED_S_OFF LED_S_Port->BRR = LED_S_Pin
-
-#define LED_F_Pin GPIO_Pin_14
-#define LED_F_Port GPIOC
-#define LED_F_ON LED_F_Port->BSRR = LED_F_Pin
-#define LED_F_OFF LED_F_Port->BRR = LED_F_Pin
-
 
 #define SW_1_Pin GPIO_Pin_4
 #define SW_1 (!(GPIOA->IDR & SW_1_Pin))

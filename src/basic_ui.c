@@ -21,8 +21,6 @@ void uiConfig() {
     LED_4_OFF;
     LED_5_OFF;
     LED_6_OFF;
-    LED_S_OFF;
-    LED_F_OFF;
 }
 
 void GPIO_Config() {
@@ -44,10 +42,6 @@ void GPIO_Config() {
     GPIO_Init(LED_5_Port, &GPIO_InitStructure);
     GPIO_InitStructure.GPIO_Pin = LED_6_Pin;
     GPIO_Init(LED_6_Port, &GPIO_InitStructure);
-    GPIO_InitStructure.GPIO_Pin = LED_S_Pin;
-    GPIO_Init(LED_S_Port, &GPIO_InitStructure);
-    GPIO_InitStructure.GPIO_Pin = LED_F_Pin;
-    GPIO_Init(LED_F_Port, &GPIO_InitStructure);
 
     // Switches
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
