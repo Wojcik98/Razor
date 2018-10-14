@@ -8,6 +8,7 @@
 #include "encoders.h"
 #include "main.h"
 #include "motors.h"
+#include "sensors.h"
 
 static void setClockInterrupt(void);
 
@@ -18,6 +19,7 @@ int main(void) {
     uiConfig();
     motorsConfig();
     encodersConfig();
+    sensorsConfig();
 
     while (1) {
     }
