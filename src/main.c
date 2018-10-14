@@ -5,6 +5,7 @@
 #include <stm32f10x.h>
 #include <system_stm32f10x.h>
 #include "ui.h"
+#include "utils.h"
 #include "encoders.h"
 #include "main.h"
 #include "motors.h"
@@ -33,4 +34,5 @@ void setClockInterrupt() {
 }
 
 void SysTick_Handler(){
+    delayDecrement();
 }
