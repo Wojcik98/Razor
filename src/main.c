@@ -8,12 +8,25 @@
 #include "main.h"
 #include "motors.h"
 
+static void setClockInterrupt(void);
+
 int main(void) {
     SystemInit();
+    setClockInterrupt();
 
     uiConfig();
     motorsConfig();
 
     while (1) {
     }
+}
+
+void setClockInterrupt() {
+    // Set interrupt every 1ms
+    if (SysTick_Config(SystemCoreClock / 1000)) {
+        while (1);
+    }
+}
+
+void SysTick_Handler(){
 }
