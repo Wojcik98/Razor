@@ -32,9 +32,9 @@ set(CMAKE_CXX_STANDARD 11)
 
 #add_definitions(-DARM_MATH_CM4 -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -D__FPU_PRESENT=1 )
 
-file(GLOB_RECURSE SOURCES "drivers/*.*" "src/*.*" "inc/*.*")
+file(GLOB_RECURSE SOURCES "drivers/*.*" "src/*.*" "inc/*.*" "res/*.*")
 
-include_directories(inc drivers/cmsis/boot drivers/cmsis/core drivers/cmsis/lib/inc)
+include_directories(inc res drivers/cmsis/boot drivers/cmsis/core drivers/cmsis/lib/inc)
 
 add_executable(${PROJECT_NAME}.elf ${SOURCES} ${LINKER_SCRIPT})
 
